@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+require "optparse"
+
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "/../lib"))
+
+opts = {
+  port: 443,
+  proto: 'https',
+}
+OptionParser.new do |o|
+  o.banner = "USAGE: #{$PROGRAM_NAME} [options]"
+  o.on("-u", "--user [USERNAME]", "Basic Auth username") do |a|
+    opts[:user] = a
+  end
+  o.on("-p", "--pass [PASSWORD]", "Basic Auth password") do |a|
+    opts[:pass] = a
+  end
+  o.on("-H", "--host [HOST]", "CB Hostname or IP Address") do |a|
+    opts[:host] = a
+  end
+  o.on("--port [PORT]", "Port 80 or 443") do |a|
+    opts[:port] = a
+  end
+  o.on("--proto [PROTOCOL]", "http or https") do |a|
+    opts[:prot] = a
+  end
+  o.on("--group-id [ID]", "The Group ID") do |a|
+    opts[:group_id] = a
+  end
+  o.on("--env-id [ID]", "The Environment ID") do |a|
+    opts[:env_id] = a
+  end
+  o.on("--server-ids [1,2,3]", Array, "The Server ID's") do |a|
+    opts[:server_ids] = a
+  end
+  o.on("--wait", "Wait for completion") do |a|
+    opts[:wait] = a
+  end
+end.parse!
+
+if opts[:user] and opts[:pass]
+  require 'cloudbolt'
+  destroy = Cloudbolt.new(opts[:proto], opts[:host], opts[:port], opts[:user], opts[:pass])
+  destroy.cb_decom(opts[:group_id],opts[:env_id], opts[:server_ids], opts[:wait])
+end
