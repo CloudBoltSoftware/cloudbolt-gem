@@ -1,13 +1,3 @@
-# LICENSE
-Use of this software is governed by the CloudBolt EULA. Contributions to this
-project are goverened by the CONTRIBUTING file and the MIT License, below.
-
-# CONTRIBUTING
-
-You may submit pull requests to this project so that they can be incorporated
-back into CloudBolt. By submitting a pull request for this project, you agree
-to license your contribution under the MIT license to this project.
-
 The MIT License (MIT)
 
 Copyright (c) 2016 CloudBolt Software
