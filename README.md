@@ -9,9 +9,9 @@ This is the Ruby api client for CloudBolt. It contains the src and gem file.
 
 ## Executables
 
-*Provision (example)
+* Provision (example)
  * `cb_prov --proto https --host 'cloudbolt.example.com' --port 443 --user cloudbolt --pass 'password' --group-id 12 --env-id 29 --owner-id 2 --osbuild-id 1 --cf vmware_disk_type="Thin Provision",sc_nic_0="VLAN 27 (DHCP)",mem_size="1 GB",vmware_datastore="NAS-NFS",cpu_cnt="1",vmware_cluster="C01",expiration_date="2016-07-27",link_clone="True" --hostname "rubyapi007" --wait`
-*Decom (example)
+* Decom (example)
  * `cb_decom --proto https --host 'cloudbolt.example.com' --port 443 --user cloudbolt --pass 'password' --env-id 29 --group-id 12 --server-ids 434 --wait`
 
 ## Ruby Class
