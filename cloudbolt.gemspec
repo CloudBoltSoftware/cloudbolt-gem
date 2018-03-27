@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
     'cb_decom',
   ]
   s.add_dependency 'json',     '~> 1.8'
-  s.add_dependency 'httparty', '>= 0.13'
+  s.add_dependency 'httparty', '~> 0.13'
   s.homepage    = 'http://cloudbolt.io'
   s.license     = 'MIT'
 end
