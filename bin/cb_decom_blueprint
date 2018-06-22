@@ -25,14 +25,8 @@ OptionParser.new do |o|
   o.on("--proto [PROTOCOL]", "http or https") do |a|
     opts[:prot] = a
   end
-  o.on("--group-id [ID]", "The Group ID") do |a|
-    opts[:group_id] = a
-  end
-  o.on("--env-id [ID]", "The Environment ID") do |a|
-    opts[:env_id] = a
-  end
-  o.on("--server-ids [1,2,3]", Array, "The Server ID's") do |a|
-    opts[:server_ids] = a
+  o.on("--decom-items [ITEM]", "The Decom Items") do |a|
+    opts[:decom_item] = a
   end
   o.on("--wait", "Wait for completion") do |a|
     opts[:wait] = a
@@ -40,7 +34,7 @@ OptionParser.new do |o|
 end.parse!
 
 if opts[:user] and opts[:pass]
-  require 'cloudbolt'
-  destroy = Cloudbolt.new(opts[:proto], opts[:host], opts[:port], opts[:user], opts[:pass])
-  destroy.cb_decom(opts[:group_id],opts[:env_id], opts[:server_ids], opts[:wait])
+  require 'loudbolt'
+  cb = Cloudbolt.new(opts[:proto], opts[:host], opts[:port], opts[:user], opts[:pass])
+  order = cb.decom_blueprint(opts[:decom_items], opts[:wait])
 end

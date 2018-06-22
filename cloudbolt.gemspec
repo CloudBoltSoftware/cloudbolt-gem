@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'cloudbolt'
-  s.version     = '0.0.1'
-  s.date        = '2016-06-10'
+  s.version     = '0.0.2'
+  s.date        = '2018-06-20'
   s.summary     = 'CloudBolt Ruby Library'
   s.description = 'A gem to interface with the CloudBolt REST API'
   s.authors     = 'Adam Kinney'
@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
     'lib/cloudbolt.rb',
   ]
   s.executables = [
-    'cb_prov',
-    'cb_decom',
+    'cb_order_blueprint',
+    'cb_decom_blueprint',
   ]
   s.add_dependency 'json',     '~> 1.8'
   s.add_dependency 'httparty', '~> 0.13'
