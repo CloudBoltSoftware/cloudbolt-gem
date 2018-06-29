@@ -26,7 +26,7 @@ $ cb_deploy_blueprint --proto https \
 --user cloudbolt \
 --pass 'password' \
 --group-id 12 \
---deploy-item '{}' \
+--deploy-items '[]' \
 --wait
 ```
 
@@ -38,9 +38,8 @@ $ cb_decom_blueprint --proto https \
 --port 443 \
 --user cloudbolt \
 --pass 'password' \
---env-id 29 \
 --group-id 12 \
---decom-item '{}' \
+--decom-items '[]' \
 --wait
 ```
 

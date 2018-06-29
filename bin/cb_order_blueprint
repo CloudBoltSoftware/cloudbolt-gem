@@ -40,5 +40,5 @@ if opts[:user] and opts[:pass]
   require 'cloudbolt'
   cb = Cloudbolt.new(opts[:proto], opts[:host], opts[:port], opts[:user], opts[:pass])
   order = cb.order_blueprint(opts[:group_id], opts[:deploy_items], opts[:wait])
-  puts order["_links"]["self"]["title"][/\d+/].to_i
+  puts order
 end
