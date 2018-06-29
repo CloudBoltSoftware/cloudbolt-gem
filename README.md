@@ -1,7 +1,7 @@
 <img src="https://www.cloudbolt.io/wp-content/uploads/CloudBolt_hlogo_blue_cloud_w_text2-1.png" width="500">
 
 # Summary
-This is the Ruby api client for CloudBolt. It contains the src and gem file.
+This is a Ruby api client for CloudBolt.
 
 ## Build
 
@@ -12,7 +12,7 @@ $ gem build cloudbolt.gemspec
 ## Install
 
 ```
-$ get install cloudbolt-{VERSION}.gem
+$ gem install cloudbolt-{VERSION}.gem
 ```
 
 ## Executables
