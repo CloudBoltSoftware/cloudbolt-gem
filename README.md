@@ -27,7 +27,8 @@ $ cb_deploy_blueprint --proto https \
 --pass 'password' \
 --group-id 12 \
 --deploy-items '[]' \
---wait
+--wait \
+--wait-time 5
 ```
 
 ### Decommission a Server
@@ -40,7 +41,8 @@ $ cb_decom_blueprint --proto https \
 --pass 'password' \
 --group-id 12 \
 --decom-items '[]' \
---wait
+--wait \
+--wait-time 5
 ```
 
 ## LICENSE

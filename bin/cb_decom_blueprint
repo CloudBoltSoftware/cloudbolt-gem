@@ -34,11 +34,14 @@ OptionParser.new do |o|
   o.on("--wait", "Wait for completion") do |a|
     opts[:wait] = a
   end
+  o.on("--wait-time", "Wait interval time") do |a|
+    opts[:wait_time] = a
+  end
 end.parse!
 
 if opts[:user] and opts[:pass]
   require 'loudbolt'
   cb = Cloudbolt.new(opts[:proto], opts[:host], opts[:port], opts[:user], opts[:pass])
-  order = cb.decom_blueprint(opts[:group_id], opts[:decom_items], opts[:wait])
+  order = cb.decom_blueprint(opts[:group_id], opts[:decom_items], opts[:wait], opts[:wwait_time])
   puts order
 end
