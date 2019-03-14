@@ -33,6 +33,21 @@ module CloudboltAPI
       return response
     end
 
+    def get_order_log_message(order)
+      jobs = order["_links"]["jobs"]
+      message = nil
+      for job in jobs do
+        job_url = "#{@proto}://#{@host}:#{@port}#{job["href"]}"
+        headers = { 'Content-Type' => 'application/json' }
+        headers['Authorization'] = "Bearer #{@token}"
+        response = HTTParty.get(job_url, :verify => @ssl_verify, :headers => headers)
+        # return if this job is a build or destroy job
+        return response['progress']['messages'][-1] if ['Provision Server', 'Delete Server'].include?(response['type'])
+      end
+      # if neither significant job was found, print a placeholder
+      return 'Waiting for job status'
+    end
+
     def wait_for_complete(url, headers, order, wait_time=5)
       # Wait until the order submit completes
       order_id = order["_links"]["self"]["title"][/\d+/].to_i
@@ -42,7 +57,7 @@ module CloudboltAPI
       until completed.include? status
         order = get_order(order_id)
         status = order["status"]
-        print "."
+        puts get_order_log_message(order)
         sleep(wait_time)
       end
       puts " Order finished with status #{status}!"
