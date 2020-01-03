@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'cloudbolt'
-  s.version     = '0.0.4'
-  s.date        = '2019-01-31'
+  s.version     = '0.0.5'
+  s.date        = '2019-03-15'
   s.summary     = 'CloudBolt Ruby Library'
   s.description = 'A gem to interface with the CloudBolt REST API'
   s.authors     = 'Adam Kinney'
